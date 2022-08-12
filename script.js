@@ -20,15 +20,6 @@ const printSubject = document.querySelectorAll('.subject');
 const printRate = document.querySelectorAll('[name=rate]');
 const printTextarea = document.querySelector('#textarea');
 
-/* // PARA TO PRINT IN SELECTORS
-const paraNome = document.querySelector('.displayName');
-const paraEmail = document.querySelector('.displayEmail');
-const paraCasa = document.querySelector('.displayCasa');
-const paraFamilia = document.querySelector('.displayFamilia');
-const paraMateriais = document.querySelector('.displayMaterias');
-const paraAvaliacao = document.querySelector('.displayAvaliacao');
-const paraObservacoes = document.querySelector('.displayObservacoes'); */
-
 // FUNCTIONS
 // Funcao que compara email e senha e retorna true ou false
 const compareData = (loginInputed, passInputed) =>
@@ -70,6 +61,7 @@ const countChar = (e) => {
   paraCounter.innerText = 500 - e.target.value.length;
 };
 
+// Funcao que faz o tratamento dos elemento do tipo Node e retorna uma string pronta
 const cleanerNode = (input) => {
   let temp = '';
 
@@ -81,21 +73,15 @@ const cleanerNode = (input) => {
   return temp.substring(0, temp.length - 2);
 };
 
+// Funcao que organiza como a funcao printInfo ira funcionar, recebendo os paramentos de elemento pai e elemento filho que sera criado junto com o seu conteudo tambem passado por parametro
 const append = (parent, content) => {
   const para = document.createElement('p');
   para.innerHTML = content;
   parent.append(para);
 };
 
+// Funcao que cria os elementos do tipo paragrafo e atribui os valores do objeto com os dados do formulario
 const printInfos = (obj) => {
-  // OBJECT TO PRINT IN PARAGRAPH SELECTORS
-  /*   paraEmail.innerText = `Email: ${obj.email}`;
-    paraNome.innerText = `Nome: ${obj.nome} ${obj.sobrenome}`;
-    paraCasa.innerText = `Casa: ${obj.casa}`;
-    paraFamilia.innerText = `Família: ${obj.familia}`;
-    paraMateriais.innerText = `Matérias: ${obj.materias}`;
-    paraAvaliacao.innerText = `Avaliação: ${obj.avaliacao}`;
-    paraObservacoes.innerText = `Observações: ${obj.observacoes}`; */
   append(data, `Nome: ${obj.nome} ${obj.sobrenome}`);
   append(data, `Email: ${obj.email}`);
   append(data, `Casa: ${obj.casa}`);
@@ -105,6 +91,7 @@ const printInfos = (obj) => {
   append(data, `Observações: ${obj.observacoes}`);
 };
 
+// Funcao que recebe os valores para serem salvos no objeto e redireciona os dados que sao necessario limpeza
 const cleanInfos = (e) => {
   e.preventDefault();
 
