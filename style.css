@@ -73,3 +73,7 @@ textarea {
 .justify-center {
   justify-content: center;
 }
+
+.is-hidden {
+  display: none;
+}
